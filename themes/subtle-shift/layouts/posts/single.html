@@ -1,0 +1,111 @@
+{{ define "main" }}
+<article class="blog-post-single">
+    <div class="post-hero" style="background-image: url('{{ .Params.featured_image }}')">
+        <div class="container">
+            <div class="post-hero-content">
+                <div class="post-meta">
+                    <span class="section-tag">{{ .Params.categories }}</span>
+                    <span class="post-date" style="color: #fff;">{{ .Date.Format "January 2, 2006" }}</span>
+                </div>
+                <h1 class="post-title">{{ .Title }}</h1>
+                <div class="post-author">
+                    <span>By {{ .Params.author }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="post-content-wrapper">
+            <div class="post-content">
+                {{ .Content }}
+            </div>
+            
+            <div class="post-sidebar">
+                <div class="post-sidebar-content">
+                    <a href="/#about" class="about-author"><h3>About the Author</h3></a>
+                    <div class="author-bio">
+                        <p>Denise Benning is a spiritual guide, energy healer, and published author with over 15 years of experience helping individuals connect with their higher selves.</p>
+                    </div>
+                    
+                    <div class="post-share">
+                        <h3>Share This Article</h3>
+                        <div class="social-shares">
+                            <a href="https://facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink | absURL }}" target="_blank" rel="noopener" aria-label="Share on Twitter">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                            </a>
+                            <a href="mailto:?subject={{ .Title }}&body=Check out this article: {{ .Permalink | absURL }}" target="_blank" rel="noopener" aria-label="Share by Email">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="post-sidebar-content">
+                    <h3>Read My Book</h3>
+                    <div class="sidebar-book">
+                        <img src="/images/intimacy-of-light-cover.png" alt="The Intimacy of Light" class="sidebar-book-image">
+                        <img src="/images/ALG_7832-gen-fill-small.jpg" alt="Denise Benning" class="author-image">
+                        <blockquote>
+                            "A deeply personal story of my spiritual awakening."
+                        </blockquote>
+                        <a href="/book" class="post-read-more">
+                            Learn More
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="post-related">
+            <h2>Related Articles</h2>
+        
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ if gt (len $posts) 1 }}
+                <div class="blog-posts-grid">
+                    {{ range first 3 (after 1 (sort $posts "Date" "desc")) }}
+                        <div class="blog-post">
+                            <div class="blog-post-image">
+                                <a href="{{ .RelPermalink }}"><img src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a>
+                            </div>
+                            <div class="blog-post-content">
+                                <div class="post-meta">
+                                    <span class="section-tag">{{ .Params.categories }}</span>
+                                </div>
+                                <div><a href="{{ .RelPermalink }}" class="blog-title-link"><h3 class="blog-post-title">{{ .Title }}</h3></a>
+                                <p class="blog-post-excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+                                </div>
+                                <a href="{{ .RelPermalink }}" class="post-read-more">
+                                    Read Article
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+            
+            <div class="blog-view-all">
+                <a href="/posts" class="button button-outline">View All Articles</a>
+            </div>
+        </div>
+    </div>
+</article>
+{{ end }} 

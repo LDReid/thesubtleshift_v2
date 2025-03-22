@@ -1,0 +1,408 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<div class="dee-cover-photo">
+    <img src="/images/Denise-on-rock-gen-fill_r2.jpg" alt="Denise Benning">
+</div>
+<section class="dee-intro hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Hello, my name is <br>Denise Benning</h1>
+            <p class="hero-description">My mission is to empower you to find healing and insight on your path to wholeness and authenticity through energetic wellness. This includes reiki, light language, angel messages and intuitive services.</p>
+            <div class="hero-buttons">
+                <a href="/services" class="button button-primary">Explore Services</a>
+                <a href="/contact" class="button button-outline">Contact Denise</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services-section gradient-background-reverse">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag" id="services">Services</div>
+            <h2 class="section-title">Spiritual Services to Nurture Your Soul</h2>
+            <p class="section-description">Discover the perfect modality to support your spiritual journey and personal growth.</p>
+        </div>
+        
+        <div class="services-carousel-container">
+            <div class="services-carousel">
+                {{ range $.Site.Params.services }}
+                <div class="service-card">
+                    <a href="{{ .url }}" class="service-card-link">
+                        <div class="service-card-image" style="background-image: url('{{ .image }}')">
+                            <div class="service-card-header">
+                                <div class="section-tag">Services</div>
+                                <h3 class="service-card-title">{{ .title }}</h3>
+                            </div>
+                            <div class="service-card-footer">
+                                <button class="service-info-button" aria-label="More information about {{ .title }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="service-modal" role="dialog" aria-hidden="true">
+                        <div class="service-modal-content">
+                            <h3 class="service-modal-title">{{ .title }}</h3>
+                            <p class="service-modal-description">{{ .description }}</p>
+                            <a href="{{ .url }}" class="button button-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-arrows">
+                    <button class="carousel-prev" aria-label="Previous services">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-next" aria-label="Next services">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag" id="about">About Denise</div>
+            <div class="semi-circle-frame">
+                <img src="/images/ALG_7865.jpeg" alt="Denise Benning" class="semi-circle-image">
+            </div>
+            <h2 class="section-title">Guiding Souls on Their Spiritual Journey</h2>
+            <p class="section-description">With over 15 years of experience in spiritual guidance and energy healing, Denise Benning has helped thousands of individuals connect with their higher selves and discover their true purpose.</p>
+        </div>
+        <div class="about-content">
+            
+            <div class="about-bio">
+                <div class="bio-accordion">
+                    {{ range $.Site.Params.aboutAccordion }}
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">
+                            <span class="accordion-title">{{ .title }}</span>
+                            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="accordion-content">
+                            <p>{{ .content }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="about-features">
+                {{ range $.Site.Params.aboutFeatures }}
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        {{ .icon | safeHTML }}
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">{{ .title }}</h3>
+                        <p class="feature-description">{{ .description }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events Section -->
+<section class="section events-section gradient-background">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag" id="events">Retreats & Events</div>
+            <h2 class="section-title">Join Our Transformative Gatherings</h2>
+            <p class="section-description">Experience profound healing and connection through our retreats and weekly events.</p>
+        </div>
+        
+        <div class="blog-featured">
+            {{ if isset $.Site.Params "featured_event" }}
+            <h3 class="events-subtitle">Featured Retreat</h3>
+            <div class="featured-event-card">
+                <div class="event-grid">
+                    <div class="event-image">
+                        <a href="{{ $.Site.Params.featured_event.url }}"><img src="{{ $.Site.Params.featured_event.image }}" alt="{{ $.Site.Params.featured_event.title }}"></a>
+                    </div>
+                    <div class="featured-post-content">
+                        <div class="event-content-inner">
+                            <h4 class="featured-post-title">{{ $.Site.Params.featured_event.title }}</h4>
+                            <div class="event-meta">
+                                <div class="event-date">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <span class="section-tag">{{ $.Site.Params.featured_event.date }}</span>
+                                </div>
+                                <div class="event-date">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span class="section-tag">{{ $.Site.Params.featured_event.location }}</span>
+                                </div>
+                            </div>
+                            <p class="featured-post-excerpt">{{ $.Site.Params.featured_event.description }}</p>
+                        </div>
+                        <div class="event-details">
+                            <a href="{{ $.Site.Params.featured_event.url }}" class="button button-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+            
+            {{ if isset $.Site.Params "recurring_events" }}
+            <div class="recurring-events">
+                <h3 class="events-subtitle">Weekly Gatherings</h3>
+                <div class="recurring-events-grid">
+                    {{ range $.Site.Params.recurring_events }}
+                    <div class="recurring-event-card">
+                        <div class="recurring-event-image">
+                            <img src="{{ .image }}" alt="{{ .title }}">
+                            <div class="recurring-event-overlay"></div>
+                        </div>
+                        <div class="recurring-event-content">
+                            <div>
+                                <h4 class="recurring-event-title">{{ .title }}</h4>
+                                <div class="recurring-event-schedule">
+                                    <span>{{ .day }}</span>
+                                    <span>{{ .time }}</span>
+                                </div>
+                                <p class="recurring-event-description">{{ .description }}</p>
+                                <div class="recurring-event-location">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span>{{ .location }}</span>
+                                </div>
+                            </div>
+                            <a href="{{ .url }}" class="post-read-more">
+                                <span>View Details</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Podcast Section -->
+<section class="section podcast-section">
+    <div class="container">
+        <div class="section-header podcast-section-header">
+            <div class="section-tag" id="podcast">Featured Podcast</div>
+            <h2 class="section-title">Soul Conversations with Denise</h2>
+            <p class="section-description">Tune in to Denise's podcast for spiritual insights, guest interviews, and guided meditations.</p>
+        </div>
+        <div class="podcast">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/abwmRsT9XMY?si=j2aaDm3miIuXip_e"
+                    title="Soul Conversations with Denise"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Book Section -->
+<section class="section gradient-background-reverse">
+    <div class="container">
+        <div class="section-header">
+            <!--<div class="section-tag" id="book">Featured Book</div>-->
+            <div class="laurel" id="book">
+                <img src="/images/laurel.svg" alt="Laurel" class="laurel-image">
+                <span class="laurel-text">Denise's<br>First book!</span>
+            </div>
+            <h2 class="section-title">The Intimacy of Light</h2>
+            <p class="section-description">Denise's bestselling guide to spiritual growth and personal transformation.</p>
+        </div>
+        <div class="featured-book">
+            <div class="book-container">
+                <div class="book-image">
+                    <img src="/images/intimacy-of-light.png" alt="Soul Awakening: A Journey to Self-Discovery">
+                </div>
+                <div class="book-content">
+                    <div class="book-blurb">
+                    <h3 class="blog-post-title">A Journey of Multidimensionality and Divine Love.</h3>
+                    <p class="book-description">This book is a deeply personal story of spiritual awakening. It is a captivating blend of <b>cosmic memoir</b> and <b>spiritual guidebook,</b> in which Denise Benning (Channa Dee) shares the journey of her soul's light, guided by the radiant presence of Jeremiah, a Divine Master with whom she shares an eternal connection spanning countless lifetimes.</p>
+                    </div>
+
+                    <div class="book-retailers">
+                        <a href="https://www.amazon.com" class="book-retailer" aria-label="Amazon" target="_blank">
+                            <img src="/images/amazon-logo-squid-ink-smile-orange.png" alt="Amazon">
+                        </a>
+                        <a href="https://books.apple.com" class="book-retailer" aria-label="Apple Books" target="_blank">
+                            <img src="/images/Download_on_Apple-books.png" alt="Apple Books">
+                        </a>
+                        <a href="https://www.kobo.com" class="book-retailer" aria-label="Kobo" target="_blank">
+                            <img src="/images/Kobo-logo.png" alt="Kobo">
+                        </a>
+                        <a href="https://www.kindle" class="book-retailer" aria-label="Kindle" target="_blank">
+                            <img src="/images/amazon-kindle-logo.png" alt="Kindle">
+                        </a>
+                    </div>
+                    
+                    <div class="book-actions">
+                        <a href="#" class="button button-primary">Get Your Copy</a>
+                        <a href="#" class="button button-outline">Read Sample</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <a href="/posts" class="section-tag" id="blog">Blog</a>
+            <a><h2 class="section-title">The Subtle Shift Journal</h2></a>
+            <p class="section-description">Insights, reflections, and wisdom to support your spiritual journey.</p>
+        </div>
+
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ if gt (len $posts) 0 }}
+            {{ $featuredPost := index (sort $posts "Date" "desc") 0 }}
+            <div class="blog-featured">
+                <div class="featured-post">
+                    <div class="featured-post-image">
+                        <a href="{{ $featuredPost.RelPermalink }}"><img src="{{ $featuredPost.Params.featured_image }}" alt="{{ $featuredPost.Title }}"></a>
+                    </div>
+                    <div class="featured-post-content">
+                        <div class="post-meta">
+                            <span class="section-tag">{{ $featuredPost.Params.categories }}</span>
+                        </div>
+                        <div><a href="{{ $featuredPost.RelPermalink }}" class="blog-title-link"><h3 class="featured-post-title">{{ $featuredPost.Title }}</h3></a>
+                        <p class="featured-post-excerpt">{{ $featuredPost.Summary | plainify | truncate 160 }}</p>
+                        <a href="{{ $featuredPost.RelPermalink }}" class="post-read-more">
+                            Read Article
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            {{ if gt (len $posts) 1 }}
+                <div class="blog-posts-grid">
+                    {{ range first 3 (after 1 (sort $posts "Date" "desc")) }}
+                        <div class="blog-post">
+                            <div class="blog-post-image">
+                                <a href="{{ .RelPermalink }}"><img src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a>
+                            </div>
+                            <div class="blog-post-content">
+                                <div class="post-meta">
+                                    <span class="section-tag">{{ .Params.categories }}</span>
+                                </div>
+                                <div><a href="{{ .RelPermalink }}" class="blog-title-link"><h3 class="blog-post-title">{{ .Title }}</h3></a>
+                                <p class="blog-post-excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+                                </div>
+                                <a href="{{ .RelPermalink }}" class="post-read-more">
+                                    Read Article
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+            
+            <div class="blog-view-all">
+                <a href="/posts" class="button button-outline">View All Articles</a>
+            </div>
+        {{ end }}
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag" id="testimonials">Testimonials</div>
+            <h2 class="section-title">Transformative Experiences</h2>
+            <p class="section-description">Hear from those who have experienced profound shifts through working with Denise.</p>
+        </div>
+        <div class="testimonials">
+            {{ if gt (len $.Site.Params.testimonials) 0 }}
+                <div class="testimonials-grid">
+                    {{ range $.Site.Params.testimonials }}
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                                </svg>
+                            </div>
+                            <blockquote class="testimonial-quote">{{ .quote }}</blockquote>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author-name">{{ .name }}</div>
+                                    <div class="testimonial-author-location">{{ .location }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {{ end }}
+                </div>
+            {{ else }}
+                <p class="testimonials-empty">Testimonials will be added soon.</p>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="hero-section cta-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="section-title">Ready to step into your path?</h2>
+                <p class="hero-description">Discover healing, clarity, and step into your being with personalized energy sessions, intuitive guidance, and transformative retreats. If you’re not sure where you should start, I reccomend an energy session!</p>
+                <div class="hero-buttons">
+                    <a href="/#contact" class="button button-primary">Book a Session</a>
+                    <a href="#services" class="button button-outline">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="dee-cta-photo">
+    <img src="/images/ALG_7686-gen-fill.jpg" alt="Denise Benning">
+</div>
+
+{{ end }} 

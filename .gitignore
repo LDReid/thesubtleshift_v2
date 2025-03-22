@@ -1,0 +1,11 @@
+# Hugo-generated assets
+/.hugo_build.lock
+/public
+/resources
+
+# npm assets
+/node_modules
+/package-lock.json
+
+# macOS
+.DS_Store

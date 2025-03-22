@@ -1,0 +1,48 @@
+{{ define "main" }}
+<section class="section gradient-background">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Blog</div>
+            <h1 class="section-title">The Subtle Shift Journal</h1>
+            <p class="section-description">Insights, reflections, and wisdom to support your spiritual journey.</p>
+        </div>
+
+        {{ $posts := where .Pages "Type" "posts" }}
+        {{ if gt (len $posts) 0 }}
+            <div class="blog-list">
+                {{ range (sort $posts "Date" "desc") }}
+                    <div class="blog-list-item">
+                        <div class="blog-list-image">
+                            <a href="{{ .RelPermalink }}"><img src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a>
+                        </div>
+                        <div class="blog-list-content">
+                            <div class="post-meta">
+                                <span class="section-tag">{{ .Params.categories }}</span>
+                                <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
+                            </div>
+                            <div>
+                                <a href="{{ .RelPermalink }}" class="blog-title-link"><h2 class="blog-list-title">{{ .Title }}</h2></a>
+                            <p class="blog-list-excerpt">
+                                {{ .Summary | plainify | truncate 160 }}
+                            </p>
+                            <div class="blog-list-footer">
+                                <a href="{{ .RelPermalink }}" class="post-read-more">
+                                    Read Article
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                            </div></div>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        {{ else }}
+            <div class="no-posts">
+                <p>No blog posts available yet. Check back soon for new content!</p>
+            </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }} 

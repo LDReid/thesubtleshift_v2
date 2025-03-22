@@ -1,0 +1,132 @@
+baseURL: 'http://localhost:1313/'
+languageCode: 'en-us'
+title: 'The Subtle Shift'
+theme: 'subtle-shift'
+
+# Site parameters
+params:
+  description: "Begin your soul journey with Denise Benning. Discover healing, insight, and transformation through reiki, light language, angel messages, and intuitive services."
+  author: "Denise Benning"
+  mainSections:
+    - "blog"
+  
+  # Logo configuration
+  logo:
+    icon: '/images/subtleshiftspiral.svg'
+    icon_type: "image"  # Can be "svg" or "image"
+    show_text: true   # Whether to show the site title next to the logo
+  
+  # About Features configuration
+  aboutFeatures:
+    - title: "Certified Soul Coach"
+      description: "Trained in multiple modalities including Reiki, Angelic Healing, and Oracle Card Reading."
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>'
+    
+    - title: "Published Author"
+      description: 'Author of "Soul Awakening: A Journey to Self-Discovery" and other spiritual guides.'
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>'
+    
+    - title: "Retreat Facilitator"
+      description: "Leads transformative retreats and workshops around the world, creating spaces for healing and growth."
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>'
+  
+  # Featured Event configuration
+  featured_event:
+    title: "Soul Light Connections"
+    date: "June 15 - 22, 2025"
+    location: "Hacienda San Gabriel de Las Palma, Mexico "
+    description: "Welcome to Soul Light Connections, an exclusive spiritual retreat designed for women ready to embark on a profound journey of self-discovery, healing, and spiritual connection."
+    image: "/images/hacienda-banner.jpeg"
+    url: "/events/bali-retreat"
+
+  # Recurring Events configuration
+  recurring_events:
+    - title: "Soul Path Circle"
+      day: "Every Tuesday"
+      time: "7:00 PM - 9:00 PM"
+      description: "Join us in the yurt where we will gather to explore intuitive development and all things energy."
+      image: "/images/yurt-circle.jpg"
+      location: "Ravenswood Retreat, Trent Lakes"
+      url: "/events#soul-path-circle"
+    - title: "Holistics and Mystics"
+      day: "Every Sunday"
+      time: "10:00 AM - 12:00 PM"
+      description: "Gather online with other healers, wellness practitioners and mystics to share business practices, support each other and connect with like minded soulpreneurs."
+      image: "/images/zoom-call.jpg"
+      location: "Zoom Virtual Gathering"
+      url: "/events#holistics-mystics"
+  
+  # Testimonials configuration
+  testimonials:
+    - name: "Sarah Johnson"
+      location: "Toronto, ON"
+      image: "/images/testimonials/sarah.jpg"
+      quote: "Working with Denise has been truly transformative. Her light language sessions unlocked a deep sense of peace I hadn't felt in years. The insights she channeled resonated with my soul in ways I can't explain."
+    - name: "Michael Rodriguez"
+      location: "Vancouver, BC"
+      image: "/images/testimonials/michael.jpg"
+      quote: "After my soul journey session with Denise, I felt a profound shift in my energy. She has an incredible gift for seeing beyond the surface and guiding you to reconnect with your authentic self. I'm forever grateful."
+    - name: "Amara Patel"
+      location: "Ottawa, ON"
+      image: "/images/testimonials/amara.jpg"
+      quote: "The oracle card reading I received from Denise was uncannily accurate. She tapped into exactly what I needed to hear at that moment in my life, providing clarity during a time of uncertainty."
+    - name: "James Wilson"
+      location: "Calgary, AB"
+      image: "/images/testimonials/james.jpg"
+      quote: "Denise's angelic energy session helped me release emotional blocks I'd been carrying for decades. Her gentle approach and profound connection to spiritual guidance created a safe space for deep healing."
+  
+  # About accordion configuration
+  aboutAccordion:
+    - title: "Who is Denise Benning?"
+      content: "Denise Benning (Channa Dee) is an energy healer, divine channel, author, and intuitive dedicated to guiding individuals on a journey of self-discovery and soul connection. At the core of her practice lies a belief in the transformative power of our multidimensionality, serving as a potent pathway to healing. Specializing in light language and reiki and with a deep connection to the Archangels and Divine Masters, Denise facilitates transformative experiences aimed at unlocking inner wisdom and fostering spiritual growth. Her goal is to empower those she works with to find healing and insight along the path to wholeness, authenticity and the light that shines within. A beautiful healer, she is transformed by the energies she channels and brings a kindness, hope and light to all the work she does."
+    - title: "Where does Denise offer her services?"
+      content: "With a deep reverence for the healing energy of nature, Denise offers her transformative healing sessions and hosts spiritual events at her rustic retreat in the woods. This sanctuary provides a haven for those seeking inner peace and renewal, allowing individuals to reconnect with their true selves amidst the tranquility of the natural world. The beautiful Ravenswood property is located in Trent Lakes and the Kawarthas. Just 15 minutes outside of Bobcaygeon, her rustic and cozy log cabin studio has special energy and provides a unique experience. Distance sessions are also available via video chat."
+    - title: "What is Denise's background?"
+      content: "Beyond her spiritual journey, Denise boasts a unique background as an Olympian, proudly representing Canada in the 1988 Calgary Winter Olympics in pairs figure skating. This experience instilled in her a sense of discipline, perseverance, and the importance of channeling one's energy towards self-mastery."
+    - title: "How does Denise help her clients?"
+      content: "Through her diverse experiences and unwavering dedication, Denise empowers others to embark on a journey of personal growth, spiritual enlightenment and healing. Her approach combines energy work, intuitive guidance, and practical techniques to help clients overcome challenges, discover their true purpose, and live more authentic lives."
+
+  # Services data
+  services:
+    - title: "Soul Journey Sessions"
+      description: "A transformative blend of reiki, light language, and channeled messages to access soul wisdom and past life healing."
+      image: "/images/Studio-angle-1_HHC0417.JPG"
+      url: "/services#soul-journey"
+    - title: "Soul Coaching Packages"
+      description: "Multi-session spiritual mentoring to explore and develop your intuitive gifts and multidimensionality. Available in 3, 5, or 8 sessions."
+      image: "/images/ALG_7944.jpeg"
+      url: "/services#soul-coaching"
+    - title: "Angelic Energy Sessions"
+      description: "Receive personalized written guidance from Archangels followed by an energetic alignment session for insight and self-discovery."
+      image: "/images/trillium_3_r1.jpg"
+      url: "/services#angelic-energy"
+    - title: "Oracle Card Readings"
+      description: "Intuitive guidance using oracle cards, meditation, and light language to reveal messages from your guides about your soul's journey."
+      image: "/images/oracle-spread.jpg"
+      url: "/services#oracle-reading"
+    - title: "Recorded Angel Message & Light Language"
+      description: "Personal channeled message and Light Language transmissions delivered in written and audio format for private meditation."
+      image: "/images/Starry-sky-4.jpg"
+      url: "/services#angel-message"
+
+# Menu configuration
+menu:
+  main:
+    - name: "About"
+      url: "/#about"
+      weight: 1
+    - name: "Services"
+      url: "/#services"
+      weight: 2
+    - name: "Events"
+      url: "/#events"
+      weight: 3
+    - name: "Podcast"
+      url: "/#podcast"
+      weight: 4
+    - name: "Book"
+      url: "/#book"
+      weight: 5
+    - name: "Blog"
+      url: "/blog"
+      weight: 6 
