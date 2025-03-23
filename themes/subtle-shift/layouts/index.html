@@ -27,7 +27,7 @@
         
         <div class="services-carousel-container">
             <div class="services-carousel">
-                {{ range $.Site.Params.services }}
+                {{ range $.Site.Data.services.services }}
                 <div class="service-card">
                     <a href="{{ .url }}" class="service-card-link">
                         <div class="service-card-image" style="background-image: url('{{ .image }}')">
@@ -89,7 +89,7 @@
             
             <div class="about-bio">
                 <div class="bio-accordion">
-                    {{ range $.Site.Params.aboutAccordion }}
+                    {{ range $.Site.Data.about_accordion.aboutAccordion }}
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">
                             <span class="accordion-title">{{ .title }}</span>
@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div class="about-features">
-                {{ range $.Site.Params.aboutFeatures }}
+                {{ range $.Site.Data.about_features.aboutFeatures }}
                 <div class="feature-card">
                     <div class="feature-icon">
                         {{ .icon | safeHTML }}
@@ -131,16 +131,16 @@
         </div>
         
         <div class="blog-featured">
-            {{ if isset $.Site.Params "featured_event" }}
+            {{ if isset $.Site.Data "events" }}
             <h3 class="events-subtitle">Featured Retreat</h3>
             <div class="featured-event-card">
                 <div class="event-grid">
                     <div class="event-image">
-                        <a href="{{ $.Site.Params.featured_event.url }}"><img src="{{ $.Site.Params.featured_event.image }}" alt="{{ $.Site.Params.featured_event.title }}"></a>
+                        <a href="{{ $.Site.Data.events.url }}"><img src="{{ $.Site.Data.events.image }}" alt="{{ $.Site.Data.events.title }}"></a>
                     </div>
                     <div class="featured-post-content">
                         <div class="event-content-inner">
-                            <h4 class="featured-post-title">{{ $.Site.Params.featured_event.title }}</h4>
+                            <h4 class="featured-post-title">{{ $.Site.Data.events.title }}</h4>
                             <div class="event-meta">
                                 <div class="event-date">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -149,31 +149,30 @@
                                         <line x1="8" y1="2" x2="8" y2="6"></line>
                                         <line x1="3" y1="10" x2="21" y2="10"></line>
                                     </svg>
-                                    <span class="section-tag">{{ $.Site.Params.featured_event.date }}</span>
+                                    <span class="section-tag">{{ $.Site.Data.events.date }}</span>
                                 </div>
                                 <div class="event-date">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                         <circle cx="12" cy="10" r="3"></circle>
                                     </svg>
-                                    <span class="section-tag">{{ $.Site.Params.featured_event.location }}</span>
+                                    <span class="section-tag">{{ $.Site.Data.events.location }}</span>
                                 </div>
                             </div>
-                            <p class="featured-post-excerpt">{{ $.Site.Params.featured_event.description }}</p>
+                            <p class="featured-post-excerpt">{{ $.Site.Data.events.description }}</p>
                         </div>
                         <div class="event-details">
-                            <a href="{{ $.Site.Params.featured_event.url }}" class="button button-primary">Learn More</a>
+                            <a href="{{ $.Site.Data.events.url }}" class="button button-primary">Learn More</a>
                         </div>
                     </div>
                 </div>
             </div>
             {{ end }}
             
-            {{ if isset $.Site.Params "recurring_events" }}
             <div class="recurring-events">
                 <h3 class="events-subtitle">Weekly Gatherings</h3>
                 <div class="recurring-events-grid">
-                    {{ range $.Site.Params.recurring_events }}
+                    {{ range $.Site.Data.recurring_events.events }}
                     <div class="recurring-event-card">
                         <div class="recurring-event-image">
                             <img src="{{ .image }}" alt="{{ .title }}">
@@ -207,7 +206,6 @@
                     {{ end }}
                 </div>
             </div>
-            {{ end }}
         </div>
     </div>
 </section>
@@ -359,9 +357,9 @@
             <p class="section-description">Hear from those who have experienced profound shifts through working with Denise.</p>
         </div>
         <div class="testimonials">
-            {{ if gt (len $.Site.Params.testimonials) 0 }}
+            {{ if isset $.Site.Data.testimonials "testimonials" }}
                 <div class="testimonials-grid">
-                    {{ range $.Site.Params.testimonials }}
+                    {{ range $.Site.Data.testimonials.testimonials }}
                         <div class="testimonial-card">
                             <div class="testimonial-quote-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -392,7 +390,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h2 class="section-title">Ready to step into your path?</h2>
-                <p class="hero-description">Discover healing, clarity, and step into your being with personalized energy sessions, intuitive guidance, and transformative retreats. If you’re not sure where you should start, I reccomend an energy session!</p>
+                <p class="hero-description">Discover healing, clarity, and step into your being with personalized energy sessions, intuitive guidance, and transformative retreats. If you're not sure where you should start, I reccomend an energy session!</p>
                 <div class="hero-buttons">
                     <a href="/#contact" class="button button-primary">Book a Session</a>
                     <a href="#services" class="button button-outline">Explore Services</a>

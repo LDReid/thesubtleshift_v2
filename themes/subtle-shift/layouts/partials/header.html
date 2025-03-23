@@ -3,18 +3,18 @@
         <div class="header-content">
             <div class="logo-container">
                 <a href="/" class="site-logo">
-                    {{ if .Site.Params.logo.icon }}
-                        {{ if eq .Site.Params.logo.icon_type "svg" }}
-                            {{ .Site.Params.logo.icon | safeHTML }}
+                    {{ if or (not (fileExists "data/site_logo.yml")) (index (or ($.Site.Data.site_logo) (dict "icon" false)) "icon") }}
+                        {{ if eq (index $.Site.Data.site_logo "icon_type") "svg" }}
+                            {{ index $.Site.Data.site_logo "icon" | safeHTML }}
                         {{ else }}
-                            <img src="{{ .Site.Params.logo.icon }}" alt="{{ .Site.Title }} logo" class="logo-icon">
+                            <img src="{{ index $.Site.Data.site_logo "icon" }}" alt="{{ .Site.Title }} logo" class="logo-icon">
                         {{ end }}
                     {{ else }}
                         <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
                         </svg>
                     {{ end }}
-                    {{ if ne .Site.Params.logo.show_text false }}
+                    {{ if ne (index (or ($.Site.Data.site_logo) (dict "show_text" true)) "show_text") false }}
                         <span class="site-name">{{ .Site.Title }}</span>
                     {{ end }}
                 </a>
