@@ -1,0 +1,32 @@
+<!-- Menu overlay that will appear behind the site-wrapper -->
+<div class="menu-overlay">
+    <div class="menu-overlay-wrapper">
+    <div class="menu-grid serif">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="menu-item">{{ .Name }}</a>
+        {{ end }}
+    </div>
+    <div class="menu-footer-wrapper">
+        <div class="menu-footer">
+            <div class="menu-address">
+                <h2>A home grown effort</h2>
+                {{ with .Site.Params.address }}
+                    <p>{{ .name }}</p>
+                    <p>{{ .street }}</p>
+                    <p>{{ .city }}, {{ .state }} {{ .zip }}</p>
+                {{ end }}
+            </div>
+            <div class="menu-social-wrapper">
+                <h2>Follow us</h2>
+                <div class="menu-social">
+                    {{ range .Site.Params.social }}
+                    <a href="{{ .url }}" class="social-icon-link" aria-label="{{ .name }}" target="_blank" rel="noopener noreferrer">
+                        {{ .icon | safeHTML }}
+                    </a>
+                    {{ end }}
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div> 

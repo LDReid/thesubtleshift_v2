@@ -1,7 +1,7 @@
 {{ define "main" }}
 <!-- Hero Section -->
 <div class="dee-cover-photo">
-    <img src="/images/Denise-on-rock-gen-fill_r2.jpg" alt="Denise Benning">
+    <img src="/images/Denise-on-rock-gen-fill_r3_mobile.jpg" alt="Denise Benning">
 </div>
 <section class="dee-intro hero-section">
     <div class="container">
@@ -18,13 +18,13 @@
 
 <!-- Services Section -->
 <section class="section services-section gradient-background-reverse">
+    <div class="subtle-shift-accent-spiral"></div>
     <div class="container">
         <div class="section-header">
             <div class="section-tag" id="services">Services</div>
             <h2 class="section-title">Spiritual Services to Nurture Your Soul</h2>
             <p class="section-description">Discover the perfect modality to support your spiritual journey and personal growth.</p>
         </div>
-        
         <div class="services-carousel-container">
             <div class="services-carousel">
                 {{ range $.Site.Data.services.services }}
@@ -33,7 +33,7 @@
                         <div class="service-card-image" style="background-image: url('{{ .image }}')">
                             <div class="service-card-header">
                                 <div class="section-tag">Services</div>
-                                <h3 class="service-card-title">{{ .title }}</h3>
+                                <h3 class="service-card-title sans-serif">{{ .title }}</h3>
                             </div>
                             <div class="service-card-footer">
                                 <button class="service-info-button" aria-label="More information about {{ .title }}">
@@ -48,7 +48,7 @@
                     </a>
                     <div class="service-modal" role="dialog" aria-hidden="true">
                         <div class="service-modal-content">
-                            <h3 class="service-modal-title">{{ .title }}</h3>
+                            <h3 class="service-modal-title sans-serif">{{ .title }}</h3>
                             <p class="service-modal-description">{{ .description }}</p>
                             <a href="{{ .url }}" class="button button-primary">Learn More</a>
                         </div>
@@ -126,39 +126,39 @@
     <div class="container">
         <div class="section-header">
             <div class="section-tag" id="events">Retreats & Events</div>
-            <h2 class="section-title">Join Our Transformative Gatherings</h2>
-            <p class="section-description">Experience profound healing and connection through our retreats and weekly events.</p>
+            <h2 class="section-title">Exclusive retreats</h2>
+            <p class="section-description">Capture the moment and join a unique once in a lifetime experience.</p>
         </div>
         
-        <div class="blog-featured">
+        <div>
             {{ if isset $.Site.Data "events" }}
-            <h3 class="events-subtitle">Featured Retreat</h3>
+            <p class="events-subtitle feature-description"><i class="fas fa-star"></i>Featured Upcoming Event</p>
             <div class="featured-event-card">
                 <div class="event-grid">
                     <div class="event-image">
                         <a href="{{ $.Site.Data.events.url }}"><img src="{{ $.Site.Data.events.image }}" alt="{{ $.Site.Data.events.title }}"></a>
                     </div>
-                    <div class="featured-post-content">
+                    <div class="featured-event-content">
+                        <div class="event-meta">
+                            <div class="event-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <div class="section-tag">{{ $.Site.Data.events.date }}</div>
+                            </div>
+                            <div class="event-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="section-tag">{{ $.Site.Data.events.location }}</div>
+                            </div>
+                        </div>
                         <div class="event-content-inner">
                             <h4 class="featured-post-title">{{ $.Site.Data.events.title }}</h4>
-                            <div class="event-meta">
-                                <div class="event-date">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span class="section-tag">{{ $.Site.Data.events.date }}</span>
-                                </div>
-                                <div class="event-date">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span class="section-tag">{{ $.Site.Data.events.location }}</span>
-                                </div>
-                            </div>
                             <p class="featured-post-excerpt">{{ $.Site.Data.events.description }}</p>
                         </div>
                         <div class="event-details">
@@ -169,42 +169,58 @@
             </div>
             {{ end }}
             
-            <div class="recurring-events">
-                <h3 class="events-subtitle">Weekly Gatherings</h3>
-                <div class="recurring-events-grid">
-                    {{ range $.Site.Data.recurring_events.events }}
-                    <div class="recurring-event-card">
-                        <div class="recurring-event-image">
-                            <img src="{{ .image }}" alt="{{ .title }}">
-                            <div class="recurring-event-overlay"></div>
-                        </div>
-                        <div class="recurring-event-content">
-                            <div>
-                                <h4 class="recurring-event-title">{{ .title }}</h4>
-                                <div class="recurring-event-schedule">
-                                    <span>{{ .day }}</span>
-                                    <span>{{ .time }}</span>
+            <div class="section-header">
+                <h2 class="section-title">Join Our Transformative Gatherings</h2>
+                <p class="section-description">Experience profound healing and connection through our retreats and weekly events.</p>
+            </div>
+            <div class="services-carousel-container">
+                <div class="services-carousel">
+                    {{ range $.Site.Data.eventcards.events }}
+                    <div class="service-card">
+                        <a href="{{ .url }}" class="service-card-link">
+                            <div class="service-card-image" style="background-image: url('{{ .image }}')">
+                                <div class="service-card-header">
+                                    <div class="section-tag">{{ .tag }}</div>
+                                    <h3 class="service-card-title sans-serif">{{ .title }}</h3>
                                 </div>
-                                <p class="recurring-event-description">{{ .description }}</p>
-                                <div class="recurring-event-location">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>{{ .location }}</span>
+                                <div class="service-card-footer">
+                                    <button class="service-info-button" aria-label="More information about {{ .title }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
-                            <a href="{{ .url }}" class="post-read-more">
-                                <span>View Details</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
+                        </a>
+                        <div class="service-modal" role="dialog" aria-hidden="true">
+                            <div class="service-modal-content">
+                                <h3 class="service-modal-title sans-serif">{{ .title }}</h3>
+                                <p class="service-modal-description">{{ .description }}</p>
+                                <a href="{{ .url }}" class="button button-primary">Learn More</a>
+                            </div>
                         </div>
                     </div>
                     {{ end }}
                 </div>
+                <div class="carousel-nav">
+                    <div class="carousel-arrows">
+                        <button class="carousel-prev" aria-label="Previous services">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="carousel-next" aria-label="Next services">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-view-all">
+                <a href="/posts" class="button button-outline">Learn more</a>
             </div>
         </div>
     </div>
@@ -250,7 +266,7 @@
                 </div>
                 <div class="book-content">
                     <div class="book-blurb">
-                    <h3 class="blog-post-title">A Journey of Multidimensionality and Divine Love.</h3>
+                    <h3 class="blog-post-title sans-serif">A Journey of Multidimensionality and Divine Love.</h3>
                     <p class="book-description">This book is a deeply personal story of spiritual awakening. It is a captivating blend of <b>cosmic memoir</b> and <b>spiritual guidebook,</b> in which Denise Benning (Channa Dee) shares the journey of her soul's light, guided by the radiant presence of Jeremiah, a Divine Master with whom she shares an eternal connection spanning countless lifetimes.</p>
                     </div>
 
@@ -271,7 +287,7 @@
                     
                     <div class="book-actions">
                         <a href="#" class="button button-primary">Get Your Copy</a>
-                        <a href="#" class="button button-outline">Read Sample</a>
+                        <a href="#" class="button button-outline book-sample-button">Read Sample</a>
                     </div>
                 </div>
             </div>
@@ -279,8 +295,29 @@
     </div>
 </section>
 
+<!-- Book Sample Modal -->
+<div class="book-sample-modal" role="dialog" aria-hidden="true">
+    <div class="book-sample-modal-content post-content ">
+        <button class="book-sample-modal-close" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="book-sample-header">
+            <h1 class="book-sample-title">{{ with $.Site.Data.book_sample }}{{ .title }}{{ end }}</h1>
+            <div class="book-sample-author">By {{ with $.Site.Data.book_sample }}{{ .author }}{{ end }}</div>
+        </div>
+        <div class="book-sample-body post-content">
+            {{ with $.Site.Data.book_sample }}
+                {{ .sample_markdown | markdownify }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+
 <!-- Blog Section -->
-<section class="section">
+<section class="section blog-section">
     <div class="container">
         <div class="section-header">
             <a href="/posts" class="section-tag" id="blog">Blog</a>

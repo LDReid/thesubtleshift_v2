@@ -1,7 +1,8 @@
 {{ define "main" }}
 <section class="section gradient-background">
+
     <div class="container">
-        <div class="section-header">
+        <div class="section-header first-section-header">
             <div class="section-tag">Blog</div>
             <h1 class="section-title">The Subtle Shift Journal</h1>
             <p class="section-description">Insights, reflections, and wisdom to support your spiritual journey.</p>
@@ -9,9 +10,25 @@
 
         {{ $posts := where .Pages "Type" "posts" }}
         {{ if gt (len $posts) 0 }}
+            <!-- Category Filter -->
+            {{ $categories := slice }}
+            {{ range $posts }}
+                {{ with .Params.categories }}
+                    {{ $categories = $categories | append . }}
+                {{ end }}
+            {{ end }}
+            {{ $categories = uniq $categories }}
+            
+            <div class="blog-categories">
+                <button class="category-filter active" data-category="all">All Posts</button>
+                {{ range $categories }}
+                    <button class="category-filter" data-category="{{ . }}">{{ . }}</button>
+                {{ end }}
+            </div>
+
             <div class="blog-list">
                 {{ range (sort $posts "Date" "desc") }}
-                    <div class="blog-list-item">
+                    <div class="blog-list-item" data-category="{{ .Params.categories }}">
                         <div class="blog-list-image">
                             <a href="{{ .RelPermalink }}"><img src="{{ .Params.featured_image }}" alt="{{ .Title }}"></a>
                         </div>
@@ -45,4 +62,5 @@
         {{ end }}
     </div>
 </section>
+
 {{ end }} 

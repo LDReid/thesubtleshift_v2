@@ -20,7 +20,7 @@ collections:
       - {label: "Author", name: "author", widget: "string", default: "Denise Benning"}
       - {label: "Categories", name: "categories", widget: "string"}
       - {label: "Featured Image", name: "featured_image", widget: "image"}
-      - {label: "Description", name: "description", widget: "text"}
+
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "services"
