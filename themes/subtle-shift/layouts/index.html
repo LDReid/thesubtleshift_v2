@@ -6,9 +6,9 @@
 <section class="dee-intro hero-section">
     <div class="container">
         <div class="hero-content">
-            <h1 class="hero-title">Hello, my name is <br>Denise Benning</h1>
-            <p class="hero-description">My mission is to empower you to find healing and insight on your path to wholeness and authenticity through energetic wellness. This includes reiki, light language, angel messages and intuitive services.</p>
-            <div class="hero-buttons">
+            <h1 class="hero-title fade-in">Hello, my name is <br>Denise Benning</h1>
+            <p class="hero-description fade-in delay-100">My mission is to empower you to find healing and insight on your path to wholeness and authenticity through energetic wellness. This includes reiki, light language, angel messages and intuitive services.</p>
+            <div class="hero-buttons fade-in delay-200">
                 <a href="/services" class="button button-primary">Explore Services</a>
                 <a href="/contact" class="button button-outline">Contact Denise</a>
             </div>
@@ -17,9 +17,9 @@
 </section>
 
 <!-- Services Section -->
-<section class="section services-section gradient-background-reverse">
+<section class="section services-section gradient-background-reverse" id="services-section">
     <div class="subtle-shift-accent-spiral"></div>
-    <div class="container">
+    <div class="container fade-in-up">
         <div class="section-header">
             <div class="section-tag" id="services">Services</div>
             <h2 class="section-title">Spiritual Services to Nurture Your Soul</h2>
@@ -75,7 +75,7 @@
 </section>
 
 <!-- About Section -->
-<section class="section">
+<section class="section" id="about-section">
     <div class="container">
         <div class="section-header">
             <div class="section-tag" id="about">About Denise</div>
@@ -106,7 +106,7 @@
             </div>
             <div class="about-features">
                 {{ range $.Site.Data.about_features.aboutFeatures }}
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
                         {{ .icon | safeHTML }}
                     </div>
@@ -219,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            <div class="blog-view-all">
+            <div class="events-learn-more">
                 <a href="/posts" class="button button-outline">Learn more</a>
             </div>
         </div>

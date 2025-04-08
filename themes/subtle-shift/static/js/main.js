@@ -269,3 +269,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Scroll Animation Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight * 0.87) && 
+            rect.bottom >= 0
+        );
+    }
+    
+    // Function to handle scroll animations
+    function handleScrollAnimations() {
+        const elements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-up, .scale-in');
+        
+        elements.forEach(element => {
+            if (isInViewport(element)) {
+                element.classList.add('scroll-active');
+            }
+        });
+    }
+    
+    // Initial check on page load
+    setTimeout(handleScrollAnimations, 100);
+    
+    // Check on scroll
+    window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+});

@@ -9,14 +9,123 @@ html {
     box-sizing: inherit;
 }
 
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* CSS animations triggered by JavaScript */
+.fade-in {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Add delay variants */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; }
+
+/* JavaScript adds this class on scroll */
+.fade-in.scroll-active,
+.fade-in-left.scroll-active,
+.fade-in-right.scroll-active,
+.fade-in-up.scroll-active,
+.scale-in.scroll-active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'aktiv-grotesk', sans-serif;
-    line-height: 1.75rem;
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-normal);
     overflow-x: hidden;
-    max-width: 100vw;
     position: relative;
+    font-family: var(--font-sans);
+    color: var(--foreground);
+    line-height: var(--line-height-normal);
 }
 
 
@@ -61,14 +170,11 @@ body {
     --line-height-normal: 1.75;
     --line-height-tight: 1;
     --letter-spacing-tight: -4%;
+    --letter-spacing-normal: 0%;
 }
 
 body {
-    font-family: var(--font-sans);
-    color: var(--foreground);
-    background-color: var(--background);
-    min-height: 100vh;
-    line-height: var(--line-height-normal);
+
 }
 .sans-serif {
     font-family: var(--font-sans);
@@ -320,6 +426,9 @@ body {
 
 .hero-content {
     max-width: 48rem;
+    /*opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.1s;*/
 }
 
 .hero-title {
@@ -415,7 +524,7 @@ body {
 }
 
 .section-title {
-    font-size: 1.875rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: var(--line-height-tight);
     margin-bottom: 1rem;
@@ -782,7 +891,7 @@ body {
     height: 700px;
     right: -200px;
     top: -200px;
-    background-color: hsla(25, 33%, 33%, 0.1);
+    background-color: hsla(25, 33%, 33%, 0.05);
     -webkit-mask-image: url('/images/subtleshiftspiral.svg');
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -797,11 +906,10 @@ body {
 
 @media (min-width: 768px) {
     .subtle-shift-accent-spiral {
-        width: 900px;
-        height: 900px;
-        right: -100px;
-        top: -150px;
-        opacity: 0.4;
+        width: 1000px;
+        height: 1000px;
+        left: 35%;  
+        top: -200px;
     }
 }
 
@@ -809,9 +917,8 @@ body {
     .subtle-shift-accent-spiral {
         width: 1000px;
         height: 1000px;
-        right: -100px;
+        left: 35%;
         top: -200px;
-        opacity: 0.5;
     }
 }
 
@@ -931,12 +1038,18 @@ body {
     display: flex;
     justify-content: flex-end;
 }
-
 .service-card-title {
-    margin-top: 1rem;
-    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     line-height: var(--line-height-tight);
+}
+
+@media (min-width: 640px) {
+    .service-card-title {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
 }
 
 .service-info-button {
@@ -1380,11 +1493,7 @@ body.menu-open {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    transition: all 0.3s;
-}
-
-.accordion-item:hover {
-    border-color: var(--border);
+    transition: transform 0.3s;
 }
 
 .accordion-trigger {
@@ -1804,7 +1913,10 @@ body.menu-open {
     justify-content: center;
     margin-top: 2rem;
 }
-
+.events-learn-more {
+    display: flex;
+    justify-content: center;
+}
 /* Blog Post List */
 .blog-list {
     display: flex;
