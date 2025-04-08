@@ -267,7 +267,7 @@ body {
     letter-spacing: var(--letter-spacing-tight);
     color: var(--secondary);
     font-family: var(--font-heading);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 @media (min-width: 640px) {
@@ -2441,7 +2441,7 @@ body.menu-open {
     mask-repeat: no-repeat;
     mask-position: center;
     margin-top:-10px;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 }
 .footer-logo {  
     width: 2rem;
