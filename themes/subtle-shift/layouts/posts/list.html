@@ -19,6 +19,17 @@
             {{ end }}
             {{ $categories = uniq $categories }}
             
+            <!-- Mobile dropdown selector -->
+            <div class="category-dropdown">
+                <select class="category-select" aria-label="Filter posts by category">
+                    <option value="all">All Posts</option>
+                    {{ range $categories }}
+                        <option value="{{ . }}">{{ . }}</option>
+                    {{ end }}
+                </select>
+            </div>
+            
+            <!-- Desktop category buttons -->
             <div class="blog-categories">
                 <button class="category-filter active" data-category="all">All Posts</button>
                 {{ range $categories }}

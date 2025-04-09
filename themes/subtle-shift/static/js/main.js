@@ -247,27 +247,49 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.category-filter');
     const blogPosts = document.querySelectorAll('.blog-list-item');
+    const categorySelect = document.querySelector('.category-select');
 
+    // Function to filter posts by category
+    function filterPosts(category) {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Update dropdown if it didn't trigger the event
+        if (categorySelect && categorySelect.value !== category) {
+            categorySelect.value = category;
+        }
+
+        // Filter the posts
+        blogPosts.forEach(post => {
+            if (category === 'all' || post.dataset.category === category) {
+                post.style.display = '';
+                post.style.opacity = '1';
+            } else {
+                post.style.display = 'none';
+                post.style.opacity = '0';
+            }
+        });
+    }
+
+    // Set up button click handlers
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-
-            const category = button.dataset.category;
-
-            blogPosts.forEach(post => {
-                if (category === 'all' || post.dataset.category === category) {
-                    post.style.display = '';
-                    post.style.opacity = '1';
-                } else {
-                    post.style.display = 'none';
-                    post.style.opacity = '0';
-                }
-            });
+            filterPosts(button.dataset.category);
         });
     });
+
+    // Set up dropdown change handler
+    if (categorySelect) {
+        categorySelect.addEventListener('change', () => {
+            filterPosts(categorySelect.value);
+        });
+    }
 });
 
 // Scroll Animation Functionality

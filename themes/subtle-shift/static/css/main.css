@@ -225,7 +225,7 @@ body {
     position: absolute;
     z-index: 9999;
     width: 100%;
-    padding-top:2rem;
+    padding-top:3rem;
 }
 @media (min-width: 640px) {
     .site-header {
@@ -432,7 +432,7 @@ body {
 }
 
 .hero-title {
-    font-size: 1.875rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: var(--line-height-tight);
     margin-bottom: 1rem;
@@ -510,7 +510,7 @@ body {
 
 @media (max-width: 768px) {
     .first-section-header {
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 }
 
@@ -2741,14 +2741,14 @@ body.menu-open {
     gap: 1rem;
     margin-bottom: 3rem;
     justify-content: center;
+    position: relative;
 }
 
 .category-filter {
     padding: 0.5rem 1.5rem;
-    border: 1px solid var(--color-primary);
     border-radius: 2rem;
     background: transparent;
-    color: var(--color-primary);
+    border: none;
     font-family: var(--font-sans);
     font-size: 0.9rem;
     cursor: pointer;
@@ -2759,6 +2759,53 @@ body.menu-open {
 }
 
 .category-filter.active {
-    background: var(--color-primary);
     color: var(--primary);
+}
+
+/* Blog category dropdown for mobile */
+.category-dropdown {
+    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 2rem;
+}
+
+.category-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--primary);
+    background-color: white;
+    border: 1px solid var(--primary);
+    border-radius: 2rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23139b45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+}
+
+.category-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* Media queries for responsive behavior */
+@media (max-width: 768px) {
+    .category-dropdown {
+        display: block;
+    }
+    
+    .blog-categories {
+        display: none;
+    }
+}
+
+/* Blog list transitions */
+.blog-list-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
